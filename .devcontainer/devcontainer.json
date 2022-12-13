@@ -31,6 +31,7 @@
 				"python.linting.pylintArgs": [
 					"--disable",
 					"unspecified-encoding, consider-using-f-string, missing-function-docstring, invalid-name, wrong-import-order"
+				],
 				"jupyter.notebookFileRoot": "/workspace"
 			},
 			// Add the IDs of extensions you want installed when the container is created.
