@@ -1,7 +1,6 @@
 # Note: You can use any Debian/Ubuntu based image you want. 
 # FROM mcr.microsoft.com/vscode/devcontainers/base:0-bullseye
-# FROM nvidia/cuda:11.2.1-base-ubuntu20.0
-FROM tensorflow/tensorflow:2.9.1-gpu
+FROM nvidia/cuda:11.8.0-base-ubuntu20.04
 
 # [Option] Install zsh
 ARG INSTALL_ZSH="true"
@@ -39,10 +38,7 @@ RUN /bin/bash /tmp/library-scripts/docker-debian.sh "${ENABLE_NONROOT_DOCKER}" "
 ## raw data : https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/python-debian.sh
 # RUN bash -c "$(wget -qO- 'https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/python-debian.sh')" 
 COPY library-scripts/python-debian.sh /tmp/library-scripts/
-ENV PIPX_HOME=/usr/local/py-utils \
-    PIPX_BIN_DIR=/usr/local/py-utils/bin
-ENV PATH=${PATH}:${PIPX_BIN_DIR}
-RUN /bin/bash /tmp/library-scripts/python-debian.sh "3.9.5" "/usr/local/python" "${PIPX_HOME}" "${USERNAME}"
+RUN /bin/bash /tmp/library-scripts/python-debian.sh "3.9.5" 
 # Rust setup
 ## Github : https://github.com/microsoft/vscode-dev-containers/blob/main/script-library/rust-debian.sh
 ## raw data : https://raw.githubusercontent.com/microsoft/vscode-dev-containers/main/script-library/rust-debian.sh
