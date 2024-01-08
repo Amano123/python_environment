@@ -16,6 +16,8 @@ services:
         # network setting
         - http_proxy=${HTTP_PROXY}
         - https_proxy=${HTTPS_PROXY}
+        - HTTP_PROXY=${HTTP_PROXY}
+        - HTTPS_PROXY=${HTTPS_PROXY}
     volumes:
       # Forwards the local Docker socket to the container.
       - /var/run/docker.sock:/var/run/docker-host.sock
